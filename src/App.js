@@ -1,5 +1,10 @@
 import { useQuery } from "@apollo/client";
+import styled from "styled-components";
 import { GET_DOCUMENT } from "./graphql/GET_DOCUMENT";
+
+const TestButton = styled.button`
+  background: yellow;
+`;
 
 function DocumentViewer() {
   const { loading, error, data } = useQuery(GET_DOCUMENT, {
@@ -8,7 +13,15 @@ function DocumentViewer() {
 
   console.log({ data });
 
-  return <div>I will be the DocumentViewer Basis</div>;
+  return (
+    <>
+      <div>Topbar with Document Name and Spacer</div>
+      <div>
+        Content
+        <TestButton>Hello</TestButton>
+      </div>
+    </>
+  );
 }
 
 export default DocumentViewer;
