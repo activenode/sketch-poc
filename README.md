@@ -6,6 +6,7 @@ tbd
 
 ## Ideas to improve
 
+- Install eslint import order to have less diffs
 - Depending on your needs I could surely add type safety through TypeScript
 - Caching (apollo?)
 - Abstracting to custom hooks if needed
