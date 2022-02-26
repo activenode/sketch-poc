@@ -2,7 +2,10 @@
 
 ## Setup
 
-tbd
+1. `npm i`
+2. `npm run start`
+
+- or alternatively if you use `project-butler` -> `p add && p start`
 
 ## TODOS
 
