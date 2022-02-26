@@ -2,6 +2,7 @@ import { useQuery } from "@apollo/client";
 import styled from "styled-components";
 import { GET_DOCUMENT } from "./graphql/GET_DOCUMENT";
 import { Topbar } from "./components/documents/Topbar";
+import "./styles/global.css";
 
 const TestButton = styled.button`
   background: yellow;
@@ -16,7 +17,7 @@ function DocumentViewer() {
 
   return (
     <>
-      <div>Topbar with Document Name and Spacer</div>
+      <Topbar />
       <div>
         Content
         <TestButton>Hello</TestButton>
