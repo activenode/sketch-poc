@@ -2,6 +2,37 @@ import styled from "styled-components";
 import { css } from "styled-components";
 import SketchLogo from "../../assets/sketch-logo.svg";
 
+const DOCUMENT_MODE = "document";
+const ARTBOARD_MODE = "artboard";
+const MODES = [DOCUMENT_MODE, ARTBOARD_MODE];
+
+export const Topbar = ({ mode, documentName }) => {
+  const isSupportedMode = MODES.includes(mode ?? "");
+  const isDocumentMode = mode === DOCUMENT_MODE;
+  const isArtboardMode = mode === ARTBOARD_MODE;
+
+  if (!isSupportedMode) {
+    throw new Error(
+      "Please consult the documentation. Given {mode} is not supported"
+    );
+  }
+
+  return (
+    <TopbarWrapper>
+      <TopbarLeftIconHolder href="/">
+        <SketchLogoHolder src={SketchLogo} />
+      </TopbarLeftIconHolder>
+
+      {isDocumentMode && <DocumentTitle>{documentName}</DocumentTitle>}
+    </TopbarWrapper>
+  );
+};
+
+Topbar.defaultProps = {
+  mode: "document",
+  documentName: "[Document Name]",
+};
+
 const TOPBAR_HEIGHT = "64px";
 
 const SEPARATOR_STYLES = css`
@@ -60,22 +91,3 @@ const SketchLogoHolder = styled.img`
   width: 27px;
   aspect-ratio: 26.16/23.63;
 `;
-
-export const Topbar = ({ mode, documentName }) => {
-  const isDocumentMode = mode === "document";
-
-  return (
-    <TopbarWrapper>
-      <TopbarLeftIconHolder href="/">
-        <SketchLogoHolder src={SketchLogo} />
-      </TopbarLeftIconHolder>
-
-      {isDocumentMode && <DocumentTitle>{documentName}</DocumentTitle>}
-    </TopbarWrapper>
-  );
-};
-
-Topbar.defaultProps = {
-  mode: "document",
-  documentName: "[Document Name]",
-};
