@@ -13,6 +13,7 @@
 
 ## Ideas to improve
 
+- since arrow-right = inverseX(arrow-left) probably we could simply get rid of one of it...
 - Adding jsdoc
 - For throwing errors/logs -> use library to be able to abstract things away on e.g. prod and minify the overall output by defining error aliases
 - propTypes
