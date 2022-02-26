@@ -1,12 +1,30 @@
 import styled from "styled-components";
 import { css } from "styled-components";
 import SketchLogo from "../../assets/sketch-logo.svg";
+import { ForwardBackwardsSwitcher } from "../generic/ForwardBackwardsSwitcher";
+import { CenterFlexLink } from "../utils/CenterFlex";
 
 const DOCUMENT_MODE = "document";
 const ARTBOARD_MODE = "artboard";
 const MODES = [DOCUMENT_MODE, ARTBOARD_MODE];
 
-export const Topbar = ({ mode, documentName }) => {
+const ForwardBackwardsSwitcherAdapted = styled(ForwardBackwardsSwitcher)`
+  margin-left: 20px;
+`;
+
+/**
+ * The reason I didn't make two Topbars is that
+ * such things are very likely to be enhanced with features and
+ * need common denominators. Obviously you can always abstract in
+ * many different ways and then reuse it by composition but I found
+ * the configuration modes for this challenge to be sufficient.
+ */
+export const Topbar = ({
+  mode,
+  documentName,
+  currentArtboardNum,
+  totalArtboardsNum,
+}) => {
   const isSupportedMode = MODES.includes(mode ?? "");
   const isDocumentMode = mode === DOCUMENT_MODE;
   const isArtboardMode = mode === ARTBOARD_MODE;
@@ -24,6 +42,12 @@ export const Topbar = ({ mode, documentName }) => {
       </TopbarLeftIconHolder>
 
       {isDocumentMode && <DocumentTitle>{documentName}</DocumentTitle>}
+      {isArtboardMode && (
+        <ForwardBackwardsSwitcherAdapted
+          currentCount={currentArtboardNum}
+          totalCount={totalArtboardsNum}
+        />
+      )}
     </TopbarWrapper>
   );
 };
@@ -60,12 +84,10 @@ const TopbarWrapper = styled.div`
   display: flex;
 `;
 
-const TopbarLeftIconHolder = styled.a`
+const TopbarLeftIconHolder = styled(CenterFlexLink)`
   position: relative;
   width: ${TOPBAR_HEIGHT};
   height: ${TOPBAR_HEIGHT};
-  display: flex;
-  justify-content: center;
 
   &:after {
     content: "";

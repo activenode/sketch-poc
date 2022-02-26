@@ -13,7 +13,9 @@
 
 ## Ideas to improve
 
+- Adding jsdoc
 - For throwing errors/logs -> use library to be able to abstract things away on e.g. prod and minify the overall output by defining error aliases
+- propTypes
 - It wasn't really easy to get some of the Dimensions. E.g. I couldn't click the Spacer within the actual Sketch artboard.
   - It would've been nice to have proper UX/UI Guidelines instead of me using px values
 - Why would I use the Separator as an Image? The chance of getting artifacts with images are higher than with CSS.
