@@ -1,7 +1,22 @@
 import styled from "styled-components";
+import { css } from "styled-components";
 import SketchLogo from "../../assets/sketch-logo.svg";
 
 const TOPBAR_HEIGHT = "64px";
+
+const SEPARATOR_STYLES = css`
+  height: 30px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    #e7e7ea00 0%,
+    #e7e7ea 31.588%,
+    #e7e7ea 49.952%,
+    #e7e7ea 68.257%,
+    #e7e7ea00 100%
+  );
+  opacity: 0.6;
+`;
 
 const TopbarWrapper = styled.div`
   height: ${TOPBAR_HEIGHT};
@@ -20,7 +35,6 @@ const TopbarLeftIconHolder = styled.a`
   height: ${TOPBAR_HEIGHT};
   display: flex;
   justify-content: center;
-  margin-right: 21px;
 
   &:after {
     content: "";
@@ -28,18 +42,18 @@ const TopbarLeftIconHolder = styled.a`
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    height: 50%;
-    width: 1px;
-    background: linear-gradient(
-      to bottom,
-      #e7e7ea00 0%,
-      #e7e7ea 31.588%,
-      #e7e7ea 49.952%,
-      #e7e7ea 68.257%,
-      #e7e7ea00 100%
-    );
-    opacity: 0.6;
+    ${SEPARATOR_STYLES}
   }
+`;
+
+// h1 because it's the headline of that page
+const DocumentTitle = styled.h1`
+  font-weight: 400;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+  line-height: ${TOPBAR_HEIGHT};
+  margin-left: 1em;
 `;
 
 const SketchLogoHolder = styled.img`
@@ -47,17 +61,21 @@ const SketchLogoHolder = styled.img`
   aspect-ratio: 26.16/23.63;
 `;
 
-export const Topbar = ({ mode }) => {
+export const Topbar = ({ mode, documentName }) => {
+  const isDocumentMode = mode === "document";
+
   return (
     <TopbarWrapper>
       <TopbarLeftIconHolder href="/">
         <SketchLogoHolder src={SketchLogo} />
       </TopbarLeftIconHolder>
-      {mode}
+
+      {isDocumentMode && <DocumentTitle>{documentName}</DocumentTitle>}
     </TopbarWrapper>
   );
 };
 
 Topbar.defaultProps = {
   mode: "document",
+  documentName: "[Document Name]",
 };

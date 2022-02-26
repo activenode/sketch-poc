@@ -4,6 +4,10 @@
 
 tbd
 
+## TODOS
+
+- [ ] Write a Test for the Topbar if you still have time
+
 ## Ideas to improve
 
 - It wasn't really easy to get some of the Dimensions. E.g. I couldn't click the Spacer within the actual Sketch artboard.
