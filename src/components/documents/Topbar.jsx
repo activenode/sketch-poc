@@ -82,6 +82,8 @@ const TopbarWrapper = styled.div`
   background: white;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
   display: flex;
+  font-family: "SF Pro Display", Helvetica, Arial, sans-serif;
+  font-family: sans-serif;
 `;
 
 const TopbarLeftIconHolder = styled(CenterFlexLink)`

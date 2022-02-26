@@ -11,6 +11,10 @@
 
 - [ ] Write a Test for the Topbar if you still have time
 
+## General Notes
+
+I'm not sure if I was supposed to add the `SF Pro Display` Font. I installed it now but on mac it's normally not available.
+
 ## Ideas to improve
 
 - since arrow-right = inverseX(arrow-left) probably we could simply get rid of one of it...
