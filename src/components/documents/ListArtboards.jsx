@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const ListArtboards = ({ artboards }) => {
   return (
     <ArtboardsWrapper>
-      {artboards.map((artboard, i) => {
+      {artboards.map((artboard, id) => {
         const { files, name } = artboard;
         console.log({ artboard });
         const lastFile = files[files.length - 1];
@@ -17,7 +17,7 @@ export const ListArtboards = ({ artboards }) => {
         // using the url as key is probably better than the index.
         // Why is there no artboard id?
         return (
-          <ArtboardLink key={url} to="/">
+          <ArtboardLink key={url} to={`/a/${id}`}>
             <img src={url} style={{ "aspect-ratio": aspectRatio.toFixed(3) }} />
             <ArtboardName>{name}</ArtboardName>
           </ArtboardLink>
@@ -39,6 +39,7 @@ const ArtboardLink = styled(Link)`
   text-align: center;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
 
   img {
     display: block;
