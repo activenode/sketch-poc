@@ -18,6 +18,7 @@ I'm not sure if I was supposed to add the `SF Pro Display` Font. I installed it 
 ## Ideas to improve
 
 - I could have used the different sizes in the Artboards array e.g. with `<picture>` and srcset
+  - For this challenge I will always take the last one (hires)
 - I could obviously also read the Document ID dynamically but for this challenge I didn't
 - since arrow-right = inverseX(arrow-left) probably we could simply get rid of one of it...
 - Adding jsdoc
