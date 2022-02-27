@@ -19,6 +19,8 @@ function useArtboardId() {
     if (!/[\d]+/.test(artboardId)) {
       errorneous = true;
       artboardId = null;
+    } else {
+      artboardId *= 1; // making sure it's not a string
     }
   }
 
@@ -54,7 +56,7 @@ function DocumentViewer() {
 
   const topbarConfig = {
     mode: showSpecificArtboard ? "artboard" : "document",
-    currentArtboardNum: 2,
+    currentArtboardNum: artboardId + 1, // only works because we know it's the index
     totalArtboardsNum: artboards?.length,
     artboardNextHref,
     artboardPrevHref,
