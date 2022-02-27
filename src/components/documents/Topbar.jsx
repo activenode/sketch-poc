@@ -38,11 +38,7 @@ export const Topbar = ({
     <TopbarWrapper>
       <TopbarLeftIconHolder to="/">
         {!isArtboardMode && <SketchLogoHolder src={SketchLogo} />}
-        {isArtboardMode && (
-          <CenterFlexFull.a>
-            <img src={CloseImg} />
-          </CenterFlexFull.a>
-        )}
+        {isArtboardMode && <img src={CloseImg} />}
       </TopbarLeftIconHolder>
 
       <TopbarDocumentTitle centerX={isArtboardMode} bold={isArtboardMode}>
