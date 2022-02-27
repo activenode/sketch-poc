@@ -7,19 +7,18 @@ export const ForwardBackwardsSwitcher = ({
   currentCount,
   totalCount,
   className,
-  onClickPrev,
-  onClickForward,
+  forwardHref,
+  prevHref,
 }) => {
-  console.log({ onClickPrev, onClickForward });
   return (
     <CenterFlexFull.div className={className}>
-      <ArrowLinkLeft onClick={onClickForward}>
+      <ArrowLinkLeft href={prevHref}>
         <img src={ArrowLeft} />
       </ArrowLinkLeft>
       <CountText>
         {currentCount} / {totalCount}
       </CountText>
-      <ArrowLinkRight onClick={onClickPrev}>
+      <ArrowLinkRight href={forwardHref}>
         <img src={ArrowRight} />
       </ArrowLinkRight>
     </CenterFlexFull.div>
@@ -29,7 +28,7 @@ export const ForwardBackwardsSwitcher = ({
 // Styled Components:
 // ---------------------
 
-const ArrowLinkLeft = styled(CenterFlex.button)`
+const ArrowLinkLeft = styled(CenterFlex.a)`
   flex: 0 0 22px;
   justify-content: flex-start;
   border: 0;

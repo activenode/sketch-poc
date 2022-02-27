@@ -8,15 +8,6 @@ const DOCUMENT_MODE = "document";
 const ARTBOARD_MODE = "artboard";
 const MODES = [DOCUMENT_MODE, ARTBOARD_MODE];
 
-const TOPBAR_ZINDEX_HIGH = 20;
-const TOPBAR_ZINDEX_LOW = 10;
-
-const ForwardBackwardsSwitcherAdapted = styled(ForwardBackwardsSwitcher)`
-  margin-left: 20px;
-  position: relative;
-  z-index: ${TOPBAR_ZINDEX_LOW};
-`;
-
 /**
  * The reason I didn't make two Topbars is that
  * such things are very likely to be enhanced with features and
@@ -29,6 +20,8 @@ export const Topbar = ({
   documentName,
   currentArtboardNum,
   totalArtboardsNum,
+  artboardNextHref,
+  artboardPrevHref,
 }) => {
   const isSupportedMode = MODES.includes(mode ?? "");
   const isArtboardMode = mode === ARTBOARD_MODE;
@@ -42,7 +35,8 @@ export const Topbar = ({
   return (
     <TopbarWrapper>
       <TopbarLeftIconHolder href="/">
-        <SketchLogoHolder src={SketchLogo} />
+        {!isArtboardMode && <SketchLogoHolder src={SketchLogo} />}
+        {isArtboardMode && <SketchLogoHolder src={SketchLogo} />}
       </TopbarLeftIconHolder>
 
       <TopbarDocumentTitle centerX={isArtboardMode}>
@@ -53,8 +47,8 @@ export const Topbar = ({
         <ForwardBackwardsSwitcherAdapted
           currentCount={currentArtboardNum}
           totalCount={totalArtboardsNum}
-          onClickPrev={() => alert("click")}
-          onClickForward={() => alert("click")}
+          prevHref={artboardPrevHref}
+          forwardHref={artboardNextHref}
         />
       )}
     </TopbarWrapper>
@@ -66,7 +60,16 @@ Topbar.defaultProps = {
   documentName: "[Document Name]",
 };
 
+// Styled Components:
+const TOPBAR_ZINDEX_HIGH = 20;
+const TOPBAR_ZINDEX_LOW = 10;
 const TOPBAR_HEIGHT = "64px";
+
+const ForwardBackwardsSwitcherAdapted = styled(ForwardBackwardsSwitcher)`
+  margin-left: 20px;
+  position: relative;
+  z-index: ${TOPBAR_ZINDEX_LOW};
+`;
 
 const SEPARATOR_STYLES = css`
   height: 30px;

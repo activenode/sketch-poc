@@ -14,13 +14,8 @@ function DocumentViewer() {
     variables: { id: "e981971c-ff57-46dc-a932-a60dc1804992" },
   });
 
-  const artboardForward = useCallback(() => {
-    alert("forward clicked");
-  }, []);
-
-  const artboardPrevious = useCallback(() => {
-    alert("previous clicked");
-  }, []);
+  const artboardNextHref = "/mock-next";
+  const artboardPrevHref = "/mock-prev";
 
   console.log({ data });
 
@@ -28,8 +23,8 @@ function DocumentViewer() {
     mode: "artboard",
     currentArtboardNum: 2,
     totalArtboardsNum: 10,
-    onClickForward: artboardForward,
-    onClickPrev: artboardPrevious,
+    artboardNextHref,
+    artboardPrevHref,
   };
 
   return (
