@@ -17,6 +17,7 @@ I'm not sure if I was supposed to add the `SF Pro Display` Font. I installed it 
 
 ## Ideas to improve
 
+- Fix the Eslint warnings
 - I could have used the different sizes in the Artboards array e.g. with `<picture>` and srcset
   - For this challenge I will always take the last one (hires)
 - I could obviously also read the Document ID dynamically but for this challenge I didn't
