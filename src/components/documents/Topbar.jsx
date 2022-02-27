@@ -36,7 +36,7 @@ export const Topbar = ({
 
   return (
     <TopbarWrapper>
-      <TopbarLeftIconHolder href="/">
+      <TopbarLeftIconHolder to="/">
         {!isArtboardMode && <SketchLogoHolder src={SketchLogo} />}
         {isArtboardMode && (
           <CenterFlexFull.a>
@@ -104,7 +104,7 @@ const TopbarWrapper = styled.div`
   font-family: sans-serif;
 `;
 
-const TopbarLeftIconHolder = styled(CenterFlex.a)`
+const TopbarLeftIconHolder = styled(CenterFlex.Link)`
   position: relative;
   width: ${TOPBAR_HEIGHT};
   height: ${TOPBAR_HEIGHT};
