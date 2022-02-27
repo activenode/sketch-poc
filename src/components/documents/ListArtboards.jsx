@@ -18,7 +18,11 @@ export const ListArtboards = ({ artboards }) => {
         // Why is there no artboard id?
         return (
           <ArtboardLink key={url} to={`/a/${id}`}>
-            <img src={url} style={{ aspectRatio: aspectRatio.toFixed(3) }} />
+            <img
+              alt={`Image Thumbnail of Artboard "${name}"`}
+              src={url}
+              style={{ aspectRatio: aspectRatio.toFixed(3) }}
+            />
             <ArtboardName>{name}</ArtboardName>
           </ArtboardLink>
         );
