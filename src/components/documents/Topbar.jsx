@@ -2,14 +2,19 @@ import styled from "styled-components";
 import { css } from "styled-components";
 import SketchLogo from "../../assets/sketch-logo.svg";
 import { ForwardBackwardsSwitcher } from "../generic/ForwardBackwardsSwitcher";
-import { CenterFlexLink } from "../utils/CenterFlex";
+import { CenterFlex } from "../utils/CenterFlex";
 
 const DOCUMENT_MODE = "document";
 const ARTBOARD_MODE = "artboard";
 const MODES = [DOCUMENT_MODE, ARTBOARD_MODE];
 
+const TOPBAR_ZINDEX_HIGH = 20;
+const TOPBAR_ZINDEX_LOW = 10;
+
 const ForwardBackwardsSwitcherAdapted = styled(ForwardBackwardsSwitcher)`
   margin-left: 20px;
+  position: relative;
+  z-index: ${TOPBAR_ZINDEX_LOW};
 `;
 
 /**
@@ -41,11 +46,16 @@ export const Topbar = ({
         <SketchLogoHolder src={SketchLogo} />
       </TopbarLeftIconHolder>
 
-      {isDocumentMode && <DocumentTitle>{documentName}</DocumentTitle>}
+      <TopbarDocumentTitle centerX={isArtboardMode}>
+        {documentName}
+      </TopbarDocumentTitle>
+
       {isArtboardMode && (
         <ForwardBackwardsSwitcherAdapted
           currentCount={currentArtboardNum}
           totalCount={totalArtboardsNum}
+          onClickPrev={() => alert("click")}
+          onClickForward={() => alert("click")}
         />
       )}
     </TopbarWrapper>
@@ -86,10 +96,11 @@ const TopbarWrapper = styled.div`
   font-family: sans-serif;
 `;
 
-const TopbarLeftIconHolder = styled(CenterFlexLink)`
+const TopbarLeftIconHolder = styled(CenterFlex.a)`
   position: relative;
   width: ${TOPBAR_HEIGHT};
   height: ${TOPBAR_HEIGHT};
+  z-index: ${TOPBAR_ZINDEX_HIGH};
 
   &:after {
     content: "";
@@ -102,13 +113,28 @@ const TopbarLeftIconHolder = styled(CenterFlexLink)`
 `;
 
 // h1 because it's the headline of that page
-const DocumentTitle = styled.h1`
+const TopbarDocumentTitle = styled.h1`
   font-weight: 400;
   font-size: 16px;
   padding: 0;
   margin: 0;
   line-height: ${TOPBAR_HEIGHT};
-  margin-left: 1em;
+
+  ${(props) => {
+    switch (props.centerX) {
+      case true:
+        return css`
+          position: absolute;
+          z-index: ${TOPBAR_ZINDEX_LOW};
+          left: 50%;
+          transform: translateX(-50%);
+        `;
+      default:
+        return css`
+          margin-left: 1em;
+        `;
+    }
+  }}
 `;
 
 const SketchLogoHolder = styled.img`

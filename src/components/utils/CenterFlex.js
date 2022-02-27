@@ -1,16 +1,27 @@
 import styled from "styled-components";
 
-export const CenterFlex = styled.div`
+const CenterFlexDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-export const CenterFlexFull = styled(CenterFlex)`
+/**
+ * Full makes sure that elements are not centered within the direction
+ * and hence take full space themselves
+ */
+const CenterFlexDivFull = styled(CenterFlexDiv)`
   align-items: normal;
 `;
 
-export const CenterFlexLink = (props) => <CenterFlex {...props} as="a" />;
-export const CenterFlexLinkFull = (props) => (
-  <CenterFlexFull {...props} as="a" />
-);
+export const CenterFlex = {
+  div: CenterFlexDiv,
+  a: (props) => <CenterFlexDiv {...props} as="a" />,
+  button: (props) => <CenterFlexDiv {...props} as="button" />,
+};
+
+export const CenterFlexFull = {
+  div: CenterFlexDivFull,
+  a: (props) => <CenterFlexDivFull {...props} as="a" />,
+  button: (props) => <CenterFlexDivFull {...props} as="button" />,
+};
