@@ -31,7 +31,6 @@ export const Topbar = ({
   totalArtboardsNum,
 }) => {
   const isSupportedMode = MODES.includes(mode ?? "");
-  const isDocumentMode = mode === DOCUMENT_MODE;
   const isArtboardMode = mode === ARTBOARD_MODE;
 
   if (!isSupportedMode) {
