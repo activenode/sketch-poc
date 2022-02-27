@@ -55,7 +55,7 @@ function DocumentViewer() {
   const currentArtboardNum = artboardId + 1;
 
   const artboardNextHref = `/a/${
-    currentArtboardNum === artboardsCount ? 1 : currentArtboardNum
+    currentArtboardNum === artboardsCount ? 0 : currentArtboardNum
   }`;
   const artboardPrevHref = `/a/${
     currentArtboardNum === 1 ? artboardsCount - 1 : artboardId - 1
