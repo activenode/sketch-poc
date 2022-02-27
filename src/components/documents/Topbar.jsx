@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { css } from "styled-components";
-import SketchLogo from "../../assets/sketch-logo.svg";
 import { ForwardBackwardsSwitcher } from "../generic/ForwardBackwardsSwitcher";
-import { CenterFlex } from "../utils/CenterFlex";
+import { CenterFlex, CenterFlexFull } from "../utils/CenterFlex";
+
+import SketchLogo from "../../assets/sketch-logo.svg";
+import CloseImg from "../../assets/close.svg";
 
 const DOCUMENT_MODE = "document";
 const ARTBOARD_MODE = "artboard";
@@ -36,10 +38,14 @@ export const Topbar = ({
     <TopbarWrapper>
       <TopbarLeftIconHolder href="/">
         {!isArtboardMode && <SketchLogoHolder src={SketchLogo} />}
-        {isArtboardMode && <SketchLogoHolder src={SketchLogo} />}
+        {isArtboardMode && (
+          <CenterFlexFull.a>
+            <img src={CloseImg} />
+          </CenterFlexFull.a>
+        )}
       </TopbarLeftIconHolder>
 
-      <TopbarDocumentTitle centerX={isArtboardMode}>
+      <TopbarDocumentTitle centerX={isArtboardMode} bold={isArtboardMode}>
         {documentName}
       </TopbarDocumentTitle>
 
@@ -121,6 +127,14 @@ const TopbarDocumentTitle = styled.h1`
   padding: 0;
   margin: 0;
   line-height: ${TOPBAR_HEIGHT};
+
+  ${(props) => {
+    if (props.bold) {
+      return css`
+        font-weight: bold;
+      `;
+    }
+  }}
 
   ${(props) => {
     switch (props.centerX) {

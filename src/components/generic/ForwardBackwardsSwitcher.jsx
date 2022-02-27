@@ -29,7 +29,8 @@ export const ForwardBackwardsSwitcher = ({
 // ---------------------
 
 const ArrowLinkLeft = styled(CenterFlex.a)`
-  flex: 0 0 22px;
+  min-width: 22px;
+  max-width: 22px;
   justify-content: flex-start;
   border: 0;
   background: 0;
