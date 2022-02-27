@@ -1,12 +1,12 @@
 import { useQuery } from "@apollo/client";
-import styled from "styled-components";
-import { GET_DOCUMENT } from "./graphql/GET_DOCUMENT";
-import { Topbar, TOPBAR_HEIGHT } from "./components/documents/Topbar";
-import { ListArtboards } from "./components/documents/ListArtboards";
-import { Artboard } from "./components/documents/Artboard";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import "./styles/global.css";
 import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import styled from "styled-components";
+import { Artboard } from "./components/documents/Artboard";
+import { ListArtboards } from "./components/documents/ListArtboards";
+import { Topbar, TOPBAR_HEIGHT } from "./components/documents/Topbar";
+import { GET_DOCUMENT } from "./graphql/GET_DOCUMENT";
+import "./styles/global.css";
 
 function useArtboardId() {
   let errorneous = false;

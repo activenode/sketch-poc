@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { css } from "styled-components";
 import { ForwardBackwardsSwitcher } from "../generic/ForwardBackwardsSwitcher";
-import { CenterFlex, CenterFlexFull } from "../utils/CenterFlex";
+import { CenterFlex } from "../utils/CenterFlex";
 
 import SketchLogo from "../../assets/sketch-logo.svg";
 import CloseImg from "../../assets/close.svg";

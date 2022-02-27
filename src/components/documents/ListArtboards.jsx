@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const ListArtboards = ({ artboards }) => {
   return (
@@ -16,10 +17,10 @@ export const ListArtboards = ({ artboards }) => {
         // using the url as key is probably better than the index.
         // Why is there no artboard id?
         return (
-          <ArtboardWrapper key={url}>
+          <ArtboardLink key={url} to="/">
             <img src={url} style={{ "aspect-ratio": aspectRatio.toFixed(3) }} />
             <ArtboardName>{name}</ArtboardName>
-          </ArtboardWrapper>
+          </ArtboardLink>
         );
       })}{" "}
     </ArtboardsWrapper>
@@ -33,7 +34,7 @@ const ArtboardsWrapper = styled.div`
   justify-content: space-around;
 `;
 
-const ArtboardWrapper = styled.div`
+const ArtboardLink = styled(Link)`
   margin: 24px;
   text-align: center;
   display: flex;
