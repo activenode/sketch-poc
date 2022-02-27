@@ -6,6 +6,7 @@ import { Artboard } from "./components/documents/Artboard";
 import { ListArtboards } from "./components/documents/ListArtboards";
 import { Topbar, TOPBAR_HEIGHT } from "./components/documents/Topbar";
 import { GET_DOCUMENT } from "./graphql/GET_DOCUMENT";
+import { isPositiveNumber } from "./utils/isNumber";
 import "./styles/global.css";
 
 function useArtboardId() {
@@ -16,7 +17,8 @@ function useArtboardId() {
   // so we build custom validation
 
   if (artboardId !== undefined) {
-    if (!/[\d]+/.test(artboardId)) {
+    if (!/[\d]+/.test(artboardId) || !isPositiveNumber(artboardId)) {
+      console.log("nope?");
       errorneous = true;
       artboardId = null;
     } else {
@@ -35,7 +37,7 @@ function DocumentViewer() {
   const [errorneous, artboardId] = useArtboardId();
   const navigate = useNavigate();
 
-  const listArtboards = !artboardId;
+  const listArtboards = !isPositiveNumber(artboardId);
   const showSpecificArtboard = !listArtboards; // it's a binary choice so we can do that
 
   const doc = data?.share?.version?.document;
