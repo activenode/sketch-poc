@@ -69,7 +69,7 @@ Topbar.defaultProps = {
 // Styled Components:
 const TOPBAR_ZINDEX_HIGH = 20;
 const TOPBAR_ZINDEX_LOW = 10;
-const TOPBAR_HEIGHT = "64px";
+export const TOPBAR_HEIGHT = "64px";
 
 const ForwardBackwardsSwitcherAdapted = styled(ForwardBackwardsSwitcher)`
   margin-left: 20px;

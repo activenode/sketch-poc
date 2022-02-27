@@ -1,13 +1,8 @@
 import { useQuery } from "@apollo/client";
 import styled from "styled-components";
 import { GET_DOCUMENT } from "./graphql/GET_DOCUMENT";
-import { Topbar } from "./components/documents/Topbar";
+import { Topbar, TOPBAR_HEIGHT } from "./components/documents/Topbar";
 import "./styles/global.css";
-import { useCallback } from "react";
-
-const TestButton = styled.button`
-  background: yellow;
-`;
 
 function DocumentViewer() {
   const { loading, error, data } = useQuery(GET_DOCUMENT, {
@@ -20,7 +15,7 @@ function DocumentViewer() {
   console.log({ data });
 
   const topbarConfig = {
-    mode: "artboard",
+    mode: "document",
     currentArtboardNum: 2,
     totalArtboardsNum: 10,
     artboardNextHref,
@@ -30,12 +25,14 @@ function DocumentViewer() {
   return (
     <>
       <Topbar {...topbarConfig} />
-      <div>
-        Content
-        <TestButton>Hello</TestButton>
-      </div>
+      <BelowTopbarContent>Content</BelowTopbarContent>
     </>
   );
 }
+
+const BelowTopbarContent = styled.div`
+  margin-top: ${TOPBAR_HEIGHT};
+  flex-grow: 1;
+`;
 
 export default DocumentViewer;
