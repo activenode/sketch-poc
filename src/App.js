@@ -70,22 +70,6 @@ function DocumentViewer() {
           <BelowTopbarContent>
             {listArtboards && <ListArtboards artboards={artboards} />}
             {showSpecificArtboard && <Artboard />}
-
-            <div style={{ background: "yellow" }}>
-              <p>
-                <Link to="/a/lol">
-                  Click me to trigger falsy Artboard Specific Link
-                </Link>
-              </p>
-              <p>
-                <Link to="/a/123">
-                  Click me to trigger truthy Artboard Specific Link
-                </Link>
-              </p>
-              <p>
-                <Link to="/">Click me to trigger Document Link</Link>
-              </p>
-            </div>
           </BelowTopbarContent>
         </>
       )}
