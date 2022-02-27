@@ -44,6 +44,7 @@ const ArtboardLink = styled(Link)`
   img {
     display: block;
     margin: auto 0;
+    min-width: 100%;
   }
 `;
 
