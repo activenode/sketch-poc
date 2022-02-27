@@ -26,6 +26,7 @@ function DocumentViewer() {
   const { loading, error, data } = useQuery(GET_DOCUMENT, {
     variables: { id: "e981971c-ff57-46dc-a932-a60dc1804992" },
   });
+  const artboards = data?.share?.version?.document?.artboards?.entries;
   const [errorneous, artboardId] = useArtboardId();
   const navigate = useNavigate();
 
@@ -37,7 +38,7 @@ function DocumentViewer() {
   const artboardNextHref = "/mock-next";
   const artboardPrevHref = "/mock-prev";
 
-  console.log({ data });
+  console.log({ data, artboards });
 
   const topbarConfig = {
     mode: "document",

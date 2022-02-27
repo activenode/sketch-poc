@@ -17,6 +17,8 @@ I'm not sure if I was supposed to add the `SF Pro Display` Font. I installed it 
 
 ## Ideas to improve
 
+- I could have used the different sizes in the Artboards array e.g. with `<picture>` and srcset
+- I could obviously also read the Document ID dynamically but for this challenge I didn't
 - since arrow-right = inverseX(arrow-left) probably we could simply get rid of one of it...
 - Adding jsdoc
 - For throwing errors/logs -> use library to be able to abstract things away on e.g. prod and minify the overall output by defining error aliases
