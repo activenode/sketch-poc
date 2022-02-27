@@ -6,6 +6,7 @@ import { ListArtboards } from "./components/documents/ListArtboards";
 import { Artboard } from "./components/documents/Artboard";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import "./styles/global.css";
+import { useEffect } from "react";
 
 function useArtboardId() {
   let errorneous = false;
@@ -39,10 +40,12 @@ function DocumentViewer() {
   const documentName = doc?.name;
   const artboards = doc?.artboards?.entries;
 
-  if (errorneous) {
-    // go to 404 page
-    navigate("/404");
-  }
+  useEffect(() => {
+    if (errorneous) {
+      // go to 404 page
+      navigate("/404");
+    }
+  }, [errorneous]);
 
   const artboardNextHref = "/mock-next";
   const artboardPrevHref = "/mock-prev";
@@ -65,7 +68,7 @@ function DocumentViewer() {
         <>
           <Topbar {...topbarConfig} />
           <BelowTopbarContent>
-            {listArtboards && <ListArtboards />}
+            {listArtboards && <ListArtboards artboards={artboards} />}
             {showSpecificArtboard && <Artboard />}
 
             <div style={{ background: "yellow" }}>
