@@ -49,6 +49,7 @@ const ArtboardLink = styled(Link)`
     display: block;
     margin: auto 0;
     min-width: 100%;
+    border: 0;
   }
 `;
 

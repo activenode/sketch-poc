@@ -67,7 +67,7 @@ function DocumentViewer() {
     totalArtboardsNum: artboardsCount,
     artboardNextHref,
     artboardPrevHref,
-    title: documentName,
+    title: showSpecificArtboard ? "SHOW ARTBOARD NAME" : documentName,
   };
 
   return (
