@@ -12,13 +12,13 @@ export const ForwardBackwardsSwitcher = ({
 }) => {
   return (
     <CenterFlexFull.div className={className}>
-      <ArrowLinkLeft href={prevHref}>
+      <ArrowLinkLeft to={prevHref}>
         <img src={ArrowLeft} />
       </ArrowLinkLeft>
       <CountText>
         {currentCount} / {totalCount}
       </CountText>
-      <ArrowLinkRight href={forwardHref}>
+      <ArrowLinkRight to={forwardHref}>
         <img src={ArrowRight} />
       </ArrowLinkRight>
     </CenterFlexFull.div>
@@ -28,7 +28,7 @@ export const ForwardBackwardsSwitcher = ({
 // Styled Components:
 // ---------------------
 
-const ArrowLinkLeft = styled(CenterFlex.a)`
+const ArrowLinkLeft = styled(CenterFlex.Link)`
   min-width: 22px;
   max-width: 22px;
   justify-content: flex-start;
