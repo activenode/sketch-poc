@@ -19,7 +19,7 @@ const MODES = [DOCUMENT_MODE, ARTBOARD_MODE];
  */
 export const Topbar = ({
   mode,
-  documentName,
+  title,
   currentArtboardNum,
   totalArtboardsNum,
   artboardNextHref,
@@ -46,7 +46,7 @@ export const Topbar = ({
       </TopbarLeftIconHolder>
 
       <TopbarDocumentTitle centerX={isArtboardMode} bold={isArtboardMode}>
-        {documentName}
+        {title}
       </TopbarDocumentTitle>
 
       {isArtboardMode && (

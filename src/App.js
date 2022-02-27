@@ -26,7 +26,11 @@ function DocumentViewer() {
   const { loading, error, data } = useQuery(GET_DOCUMENT, {
     variables: { id: "e981971c-ff57-46dc-a932-a60dc1804992" },
   });
-  const artboards = data?.share?.version?.document?.artboards?.entries;
+
+  const doc = data?.share?.version?.document;
+  const documentName = doc?.name;
+  const artboards = doc?.artboards?.entries;
+
   const [errorneous, artboardId] = useArtboardId();
   const navigate = useNavigate();
 
@@ -38,7 +42,7 @@ function DocumentViewer() {
   const artboardNextHref = "/mock-next";
   const artboardPrevHref = "/mock-prev";
 
-  console.log({ data, artboards });
+  console.log({ doc, artboards });
 
   const topbarConfig = {
     mode: "document",
@@ -46,6 +50,7 @@ function DocumentViewer() {
     totalArtboardsNum: 10,
     artboardNextHref,
     artboardPrevHref,
+    title: documentName,
   };
 
   return (
