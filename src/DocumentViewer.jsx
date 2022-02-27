@@ -58,7 +58,7 @@ function DocumentViewer() {
     currentArtboardNum === artboardsCount ? 1 : currentArtboardNum
   }`;
   const artboardPrevHref = `/a/${
-    currentArtboardNum === 1 ? artboardsCount - 1 : currentArtboardNum - 1
+    currentArtboardNum === 1 ? artboardsCount - 1 : artboardId - 1
   }`;
 
   const topbarConfig = {
