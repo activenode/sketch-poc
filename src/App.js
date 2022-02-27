@@ -50,9 +50,9 @@ function DocumentViewer() {
   console.log({ doc, artboards });
 
   const topbarConfig = {
-    mode: "document",
+    mode: showSpecificArtboard ? "artboard" : "document",
     currentArtboardNum: 2,
-    totalArtboardsNum: 10,
+    totalArtboardsNum: artboards?.length,
     artboardNextHref,
     artboardPrevHref,
     title: documentName,
