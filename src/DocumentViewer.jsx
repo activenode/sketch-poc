@@ -43,6 +43,7 @@ function DocumentViewer() {
   const doc = data?.share?.version?.document;
   const documentName = doc?.name;
   const artboards = doc?.artboards?.entries;
+  const artboardsCount = (artboards || []).length;
 
   useEffect(() => {
     if (errorneous) {
@@ -51,15 +52,19 @@ function DocumentViewer() {
     }
   }, [errorneous]);
 
-  const artboardNextHref = "/mock-next";
-  const artboardPrevHref = "/mock-prev";
+  const currentArtboardNum = artboardId + 1;
 
-  console.log({ doc, artboards });
+  const artboardNextHref = `/a/${
+    currentArtboardNum === artboardsCount ? 1 : currentArtboardNum
+  }`;
+  const artboardPrevHref = `/a/${
+    currentArtboardNum === 1 ? artboardsCount - 1 : currentArtboardNum - 1
+  }`;
 
   const topbarConfig = {
     mode: showSpecificArtboard ? "artboard" : "document",
-    currentArtboardNum: artboardId + 1, // only works because we know it's the index
-    totalArtboardsNum: artboards?.length,
+    currentArtboardNum, // only works because we know it's the index
+    totalArtboardsNum: artboardsCount,
     artboardNextHref,
     artboardPrevHref,
     title: documentName,
