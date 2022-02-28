@@ -4,8 +4,7 @@
 
 1. `npm i`
 2. `npm run start`
-
-- or alternatively if you use `project-butler` -> `p add && p start`
+   2.1 or alternatively if you use `project-butler` -> `p add && p start`
 
 ## TODOS
 
