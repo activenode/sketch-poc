@@ -18,7 +18,6 @@ function useArtboardId() {
 
   if (artboardId !== undefined) {
     if (!/[\d]+/.test(artboardId) || !isPositiveNumber(artboardId)) {
-      console.log("nope?");
       errorneous = true;
       artboardId = null;
     } else {
@@ -61,8 +60,6 @@ function DocumentViewer() {
   const artboardPrevHref = `/a/${
     currentArtboardNum === 1 ? artboardsCount - 1 : artboardId - 1
   }`;
-
-  console.log({ artboardNextHref, artboardPrevHref });
 
   const topbarConfig = {
     mode: showSpecificArtboard ? "artboard" : "document",
