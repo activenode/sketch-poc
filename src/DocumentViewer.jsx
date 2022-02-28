@@ -6,8 +6,8 @@ import { Artboard } from "./components/documents/Artboard";
 import { ListArtboards } from "./components/documents/ListArtboards";
 import { Topbar, TOPBAR_HEIGHT } from "./components/documents/Topbar";
 import { GET_DOCUMENT } from "./graphql/GET_DOCUMENT";
-import { isPositiveNumber } from "./utils/isNumber";
 import "./styles/global.css";
+import { isPositiveNumber } from "./utils/isNumber";
 
 function useArtboardId() {
   let errorneous = false;
@@ -50,7 +50,7 @@ function DocumentViewer() {
       // go to 404 page
       navigate("/404");
     }
-  }, [errorneous]);
+  }, [errorneous, navigate]);
 
   const currentArtboardNum = artboardId + 1;
 
@@ -73,7 +73,8 @@ function DocumentViewer() {
   return (
     <>
       {loading && "Loading..."}
-      {!loading && (
+      {error && "Sorry, we got some error over here!"}
+      {!loading && !error && (
         <>
           <Topbar {...topbarConfig} />
           <BelowTopbarContent>

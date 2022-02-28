@@ -1,7 +1,4 @@
-import { useMemo, useState } from "react";
-import { useLayoutEffect } from "react";
-import { useEffect } from "react";
-import { useRef } from "react";
+import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import styled from "styled-components";
 import { CenterFlexFull } from "../utils/CenterFlex";
 
@@ -27,7 +24,7 @@ export const Artboard = ({ artboard, onRequestNext, onRequestPrev }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   useArrowKeys(onRequestPrev, onRequestNext);
 
-  const files = artboard.files;
+  const { name, files } = artboard;
   const originalFile = files[0];
 
   const { url, width } = originalFile;
@@ -48,6 +45,7 @@ export const Artboard = ({ artboard, onRequestNext, onRequestPrev }) => {
     return (
       <ArtboardImage
         src={url}
+        alt={`Artboard Image: '${name}'`}
         width={width}
         hidden={!isLoaded}
         onLoad={() => {
@@ -55,10 +53,10 @@ export const Artboard = ({ artboard, onRequestNext, onRequestPrev }) => {
         }}
       />
     );
-  }, [url, isLoaded]);
+  }, [url, isLoaded, width]);
 
   return (
-    <ArtboardImageHold>
+    <ArtboardImageHold onClick={onRequestNext}>
       {!isLoaded && "Loading..."}
       {image}
     </ArtboardImageHold>

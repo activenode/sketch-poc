@@ -18,7 +18,7 @@ export const ListArtboards = ({ artboards }) => {
         return (
           <ArtboardLink key={url} to={`/a/${id}`}>
             <img
-              alt={`Image Thumbnail of Artboard "${name}"`}
+              alt={`Image Thumbnail of Artboard '${name}'`}
               src={url}
               style={{ aspectRatio: aspectRatio.toFixed(3) }}
             />
