@@ -6,7 +6,6 @@ export const ListArtboards = ({ artboards }) => {
     <ArtboardsWrapper>
       {artboards.map((artboard, id) => {
         const { files, name } = artboard;
-        console.log({ artboard });
         const lastFile = files[files.length - 1];
         const { width, height } = lastFile;
         const aspectRatio = width / height;

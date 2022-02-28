@@ -44,6 +44,7 @@ function DocumentViewer() {
   const documentName = doc?.name;
   const artboards = doc?.artboards?.entries;
   const artboardsCount = (artboards || []).length;
+  const specificArtboard = artboards?.[artboardId];
 
   useEffect(() => {
     if (errorneous) {
@@ -67,7 +68,7 @@ function DocumentViewer() {
     totalArtboardsNum: artboardsCount,
     artboardNextHref,
     artboardPrevHref,
-    title: showSpecificArtboard ? "SHOW ARTBOARD NAME" : documentName,
+    title: showSpecificArtboard ? specificArtboard?.name : documentName,
   };
 
   return (
@@ -78,7 +79,7 @@ function DocumentViewer() {
           <Topbar {...topbarConfig} />
           <BelowTopbarContent>
             {listArtboards && <ListArtboards artboards={artboards} />}
-            {showSpecificArtboard && <Artboard />}
+            {showSpecificArtboard && <Artboard artboard={specificArtboard} />}
           </BelowTopbarContent>
         </>
       )}
@@ -87,6 +88,7 @@ function DocumentViewer() {
 }
 
 const BelowTopbarContent = styled.div`
+  position: relative;
   margin-top: ${TOPBAR_HEIGHT};
   flex-grow: 1;
 `;

@@ -98,6 +98,7 @@ const TopbarWrapper = styled.div`
   display: flex;
   font-family: "SF Pro Display", Helvetica, Arial, sans-serif;
   font-family: sans-serif;
+  z-index: ${TOPBAR_ZINDEX_HIGH};
 `;
 
 const TopbarLeftIconHolder = styled(CenterFlex.Link)`
