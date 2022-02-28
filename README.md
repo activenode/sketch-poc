@@ -23,7 +23,7 @@
 - Apparently the breadcrumb.svg is unused? Or am I blind?
 - Fix the Eslint warnings
 - I could have used the different sizes in the Artboards array e.g. with `<picture>` and srcset
-  - For this challenge I will always take the last one (HiRes)
+  - For this challenge I will always take the last one for the thumbnails (HiRes)
 - I could obviously also read the Document ID dynamically but for this challenge I didn't
 - since arrow-right = inverseX(arrow-left) we could simply get rid of one of it...
 - Adding jsdoc a bit more even tho I find the code pretty readable ATM still
