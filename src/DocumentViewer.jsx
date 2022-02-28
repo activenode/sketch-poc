@@ -62,6 +62,8 @@ function DocumentViewer() {
     currentArtboardNum === 1 ? artboardsCount - 1 : artboardId - 1
   }`;
 
+  console.log({ artboardNextHref, artboardPrevHref });
+
   const topbarConfig = {
     mode: showSpecificArtboard ? "artboard" : "document",
     currentArtboardNum, // only works because we know it's the index
@@ -79,7 +81,15 @@ function DocumentViewer() {
           <Topbar {...topbarConfig} />
           <BelowTopbarContent>
             {listArtboards && <ListArtboards artboards={artboards} />}
-            {showSpecificArtboard && <Artboard artboard={specificArtboard} />}
+            {showSpecificArtboard && (
+              <Artboard
+                artboard={specificArtboard}
+                onRequestNext={() => {
+                  navigate(artboardNextHref);
+                }}
+                onRequestPrev={() => navigate(artboardPrevHref)}
+              />
+            )}
           </BelowTopbarContent>
         </>
       )}
